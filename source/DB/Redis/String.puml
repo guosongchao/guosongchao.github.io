@@ -1,0 +1,17 @@
+@startuml
+start
+note : 扩容
+:已有字符串为s,长度L,剩余数组长度f, \n追加字符串为s1,长度L1;
+if (f < L1) then (Yes)
+    note : 需要扩容
+    if (l + L1 < 1MB) then (Yes)
+        :扩容后 len = L + L1, free = L + L1;
+    else (No)
+        :扩容后 len = L + L1, free = 1MB;
+    endif
+else (No)
+    note right : 不需要扩容
+    end;
+endif
+end
+@enduml
